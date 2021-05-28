@@ -136,7 +136,7 @@ if upload_file is not None:
 img_url = st.text_input('Enter some URL of image',value="https;//example_of_img.jpg")
 
 if img_url is not None:
-        f = io.BytesIO(urllib.requests.get(img_url).content)
+        f = io.BytesIO(requests.get(img_url).content)
         img = Image.open(f)
 
         if detect_adult_remote(img_url):
