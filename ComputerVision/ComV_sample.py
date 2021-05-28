@@ -136,7 +136,6 @@ if upload_file is not None:
 img_url = st.text_input('Enter some URL of image',value="https;//example_of_img.jpg")
 
 if img_url is not None:
-    try:
         f = io.BytesIO(requests.get(img_url).content)
         img = Image.open(f)
 
@@ -171,5 +170,4 @@ if img_url is not None:
         st.markdown('*detected contents tag*')
         st.markdown(f'>{tags_name}')
 
-    except:
-        st.error("正しいURLを入力してください")
+
