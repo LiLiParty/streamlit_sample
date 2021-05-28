@@ -136,8 +136,13 @@ if upload_file is not None:
 img_url = st.text_input('Enter some URL of image',value="https;//example_of_img.jpg")
 
 if img_url is not None:
-        f = io.BytesIO(requests.get(img_url).content)
-        img = Image.open(f)
+        img_read = urllib.request.urlopen(img_url).read() #画像データGET
+        img_bin = io.BytesIO(img_read) #メモリに保持してディレクトリ偽装みたいなことする
+        pil_img = Image.open(img_bin) #PILで読み込む
+        img_io = io.BytesIO() #空のインスタンスを作る
+        pil_img.save(img_io,"JPEG") #空のインスタンスに保存する
+        img = img_io.getvalue() #バイナリデータを取得する（open().read()状態）
+
 
         if detect_adult_remote(img_url):
             st.warning("！！！！これはエッチな画像です！！！！")
