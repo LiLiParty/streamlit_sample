@@ -18,8 +18,8 @@ import streamlit as st
 from streamlit.type_util import is_altair_chart
 
 #st.title("Delete APIKEY")
-KEY = "48fc51b278d4424a90f02bb52ddf8c46"#os.environ['API_KEY']
-ENDPOINT = "https://lilipa-20210525.cognitiveservices.azure.com/"#os.environ['API_ENDPOINT']
+KEY = os.environ['API_KEY']
+ENDPOINT = os.environ['API_ENDPOINT']
 
 computervision_client = ComputerVisionClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 
@@ -75,6 +75,7 @@ upload_file = st.file_uploader(
 
 
 if upload_file is not None:
+    try:
         img = Image.open(upload_file)
         img_path = f'img/{upload_file.name}'
         img.save(img_path)
@@ -130,10 +131,13 @@ if upload_file is not None:
             os.mkdir('./img')
             flag = 0
             a = False
+    except:
+        st.error("アップロードした画像は現在扱えません！")
 
 img_url = st.text_input('Enter some URL of image',value="https://images.unsplash.com/photo-1621570168297-bdcdd4457664?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80")
 
 if img_url is not None:
+    try:
         f = io.BytesIO(urllib.request.urlopen(img_url).read())
         img = Image.open(f)
 
@@ -168,5 +172,7 @@ if img_url is not None:
         tags_name = ', '.join(tags_name)
         st.markdown('*detected contents tag*')
         st.markdown(f'>{tags_name}')
+    except:
+        st.error("正しいURLを入力してください。")
 
 st.write("made by LiLiParty")
