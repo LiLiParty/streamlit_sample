@@ -18,8 +18,8 @@ import streamlit as st
 from streamlit.type_util import is_altair_chart
 
 #st.title("Delete APIKEY")
-KEY = os.environ['API_KEY']
-ENDPOINT = os.environ['API_ENDPOINT']
+KEY = "48fc51b278d4424a90f02bb52ddf8c46"#os.environ['API_KEY']
+ENDPOINT = "https://lilipa-20210525.cognitiveservices.azure.com/"#os.environ['API_ENDPOINT']
 
 computervision_client = ComputerVisionClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 
@@ -94,7 +94,7 @@ if upload_file is not None:
             h = object.rectangle.h
             caption = object.object_property
 
-            font = ImageFont.truetype(font='./Helvetica 400.ttf', size=50)
+            font = ImageFont.truetype(font='Helvetica 400.ttf', size=50)
             text_w,text_h = draw.textsize(caption, font=font)
             
 
@@ -153,7 +153,7 @@ if img_url is not None:
             h = object.rectangle.h
             caption = object.object_property
 
-            font = ImageFont.truetype(font='./Helvetica 400.ttf', size=30)
+            font = ImageFont.truetype(font='Helvetica 400.ttf', size=30)
             text_w,text_h = draw.textsize(caption,font=font)
             
 
