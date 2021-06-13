@@ -68,6 +68,7 @@ def detect_adult_remote(img_url):
 st.title("ComputerVision Sample")
 st.write("画像をアップロードするか、URLを入力してください。")
 
+
 upload_file = st.file_uploader(
     'Choose an image  現在こちらは正常に動かないことがあります。尚、アップロードした画像はネットワーク上に保存されますが、削除も可能です。',
     type=['png','jpg','jpeg'],
@@ -133,6 +134,7 @@ if upload_file is not None:
             a = False
     except:
         st.error("アップロードした画像は現在扱えません！")
+
 
 img_url = st.text_input('Enter some URL of image',value="https://images.unsplash.com/photo-1621570168297-bdcdd4457664?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80")
 

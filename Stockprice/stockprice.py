@@ -4,7 +4,6 @@ import altair as alt
 import streamlit as st
 
 st.title("Stock Price test")
-st.write(st.secrets["Secrets_test"]);
 try:
     st.sidebar.write("""
     # Stockprice
@@ -44,7 +43,7 @@ try:
         return df
 
     st.sidebar.write("""
-    ##　株価の範囲指定
+    ## 株価の範囲指定
     """)
     ymin, ymax = st.sidebar.slider(
         '範囲を指定してください',
