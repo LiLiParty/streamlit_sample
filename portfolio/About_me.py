@@ -310,9 +310,9 @@ def Apps_Demo():
         st.title("Joy-Con Tennis")
         st.write("Nintendo SwitchのJoy-ConとArduinoで操作できるテニスゲームを作りました。JoyconLibというものを使っています。")
         st.write("Unityを趣味で触っている時に、ちょうど大学でArduinoを用いたチーム自由制作があったので発表まで仕上げました。コース内で一位をいただきました。")
-        st.image("instrument_name.png")
+        st.image("./media/instrument_name.png")
         st.error("大きめの音が出ます。")
-        st.video("Joy-Con Tennis.mp4")
+        st.video("./media/Joy-Con Tennis.mp4")
         #st.write("メディアネットワーク演習という講義でした。Youtubeに紹介動画が上がっています。")
     def Apps_demo_hrtf():
         st.title("HRTF 3DSounds")
@@ -320,7 +320,7 @@ def Apps_Demo():
         st.write("人間は、音源の方向を左右の耳から聞こえる音の差異で判断しています。これを音源定位と呼びますが、心理的なもの・音圧差・位相差などに影響されています。")
         st.write("このプログラムでは、HRTF(頭部伝達関数)を音源に畳み込むことによって音源を移動させています。HRTFは、頭部及び体によって生じる音の変化を伝達関数として表したものです。")
         st.write("名古屋大学のHRTFデータベースを用いました。右から左の移動方向のHRTFを順次畳み込んでいくのですが、少し音飛びしてしまっています、、、")
-        st.audio("hrtf_siren.wav")
+        st.audio("./media/hrtf_siren.wav")
         """
         ヘッドホンをしてお聞きください。念の為、小さい音量から聞いてください。
         """
