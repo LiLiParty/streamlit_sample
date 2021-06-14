@@ -51,7 +51,7 @@ def Apps_Demo():
         st.header("・Azure Computer Vision Demo")
         st.write("Azureのデモです。画像URLを入力すると物体検出します。")
         st.write("")
-        st.write("順次Webアプリ化していきたいと思います。")
+        st.write("順次、他のプログラムもWebアプリ化したい。")
     def Apps_demo_yfinance():
         st.title("Stock Price test")
         try:
