@@ -12,7 +12,7 @@ def About_me():
     st.write("Belong: 北海道大学工学部情報エレクトロニクス学科メディアネットワークコース B3")
 
     st.header("//Major")
-    st.write("通信工学、信号処理、画像・音声・言語などのメディア処理を学んでいます。研究室次第ですが、メディア処理が専攻になりそうです（？）")
+    st.write("通信工学、信号処理、画像・音声・言語などのメディア処理を学んでいます。研究室次第ですが、メディア処理が専攻になりそうです。")
 
     st.header("//Research")
     st.write("まだ研究室には所属していません。今のところ、メディアダイナミクス研究室を志望しています。M進予定です。")
@@ -22,26 +22,36 @@ def About_me():
 
     st.header("//Interest")
     st.write("未来の暮らし・インフラにとっても興味があります。１００年・２００年後の世界で生きてみたいけれど、そうはいかないので最先端のインフラの開発に携わりたい。")
-    st.write("見えやすく面白い技術が好きです。画像処理・音声処理・CG処理等々に興味があります。（何でもやると面白い）")
+    st.write("見えやすい、面白い、未来感のある技術が好きです。画像処理・音声処理・CG処理等々に興味があります。（何でもやると面白いけれど、、）")
 
     st.header("//Skill ＆ Certification")
     st.write("・C ・C++ ・Python ・Unity ・Arduino ・基本情報技術者 ・TOEIC 755")
 
-    link = '[GitHub](http://github.com)'
-    st.markdown(link, unsafe_allow_html=True)
+    st.header("//Link")
+    link_1 = '[メディアネットワークコース - 学科・コース | 北大工](https://www.eng.hokudai.ac.jp/course/?c=2040)'
+    st.markdown(link_1, unsafe_allow_html=True)
+    link_2 = '[HCPC 北海道大学競技プログラミングサークル](https://hcpc-hokudai.github.io/)'
+    st.markdown(link_2, unsafe_allow_html=True)
+    link_3 = '[北海道大学 大学院情報科学研究院 メディアダイナミクス研究室](https://www-lmd.ist.hokudai.ac.jp/)'
+    st.markdown(link_3, unsafe_allow_html=True)
+
+    #link = '[GitHub](http://github.com)'
+    #st.markdown(link, unsafe_allow_html=True)
 
 def Apps_Demo():
     def Apps_demo_title():
         st.title("Apps & Demo")
         st.write("サイドバーのボタンから選択してください")
-        st.header("・Joycon-Tennis")
+        st.header("・Joy-Con Tennis")
         st.write("Unityで作った、ArduinoとJoyconで操作するテニスゲームの紹介です")
-        st.header("・HRTF 3DSounds demo")
+        st.header("・HRTF 3DSounds ")
         st.write("頭部伝達関数を用いた立体音響のコードです")
         st.header("・streamlit Demo ~yfinance~")
         st.write("streamlitでのAPIの練習です。株価可視化アプリになっています。")
         st.header("・Azure Computer Vision Demo")
         st.write("Azureのデモです。画像URLを入力すると物体検出します。")
+        st.write("")
+        st.write("順次Webアプリ化していきたいと思います。")
     def Apps_demo_yfinance():
         st.title("Stock Price test")
         try:
@@ -296,15 +306,163 @@ def Apps_Demo():
                 st.markdown(f'>{tags_name}')
             except:
                 st.error("正しいURLを入力してください！もし正しいURLを入力してもこの表示が消えない場合は、何らかのエラーが起きています。すみません。")
+    def Apps_demo_Unity():
+        st.title("Joy-Con Tennis")
+        st.write("Nintendo SwitchのJoy-ConとArduinoで操作できるテニスゲームを作りました。JoyconLibというものを使っています。")
+        st.write("Unityを趣味で触っている時に、ちょうど大学でArduinoを用いたチーム自由制作があったので発表まで仕上げました。コース内で一位をいただきました。")
+        st.image("instrument_name.png")
+        st.error("大きめの音が出ます。")
+        st.video("Joy-Con Tennis.mp4")
+        #st.write("メディアネットワーク演習という講義でした。Youtubeに紹介動画が上がっています。")
+    def Apps_demo_hrtf():
+        st.title("HRTF 3DSounds")
+        st.write("HRTFの畳み込みによる立体音響を試したものです。音源.wav を 右から左に移動する音源.wav として書き出します。")
+        st.write("人間は、音源の方向を左右の耳から聞こえる音の差異で判断しています。これを音源定位と呼びますが、心理的なもの・音圧差・位相差などに影響されています。")
+        st.write("このプログラムでは、HRTF(頭部伝達関数)を音源に畳み込むことによって音源を移動させています。HRTFは、頭部及び体によって生じる音の変化を伝達関数として表したものです。")
+        st.write("名古屋大学のHRTFデータベースを用いました。右から左の移動方向のHRTFを順次畳み込んでいくのですが、少し音飛びしてしまっています、、、")
+        st.audio("hrtf_siren.wav")
+        """
+        ヘッドホンをしてお聞きください。念の為、小さい音量から聞いてください。
+        """
+        link_1 = '[Head Related Transfer Functions (http://www.sp.m.is.nagoya-u.ac.jp/HRTF/index-j.html) 2021/6/14閲覧](http://www.sp.m.is.nagoya-u.ac.jp/HRTF/index-j.html)'
+        st.markdown(link_1, unsafe_allow_html=True)
+        link_2 = "[参考にしたサイト(https://zack-ff.hatenablog.com/entry/2017/01/05/180628) 2021/6/14閲覧](https://zack-ff.hatenablog.com/entry/2017/01/05/180628)"
+        st.markdown(link_2, unsafe_allow_html=True)
+        st.write("以下、プログラム(python)です。尚、変換前のサイレン音は別に作っています。")
+        """
+        ```python
+        import numpy
+        import pyaudio
+        import scipy.io.wavfile as scw
+        from scipy.io.wavfile import write
+        import wave  
+        import struct  
+
+        def load_elev0hrtf():
+            elev0Hrtf_L = {}
+            elev0Hrtf_R = {}
+
+            for i in range(72):
+                str_i = str(i * 5)
+
+                if len(str_i) < 2:
+                    str_i = "00" + str_i
+                elif len(str_i) < 3:
+                    str_i = "0" + str_i
+
+                fileName = "L0e" + str_i + "a.dat"
+                filePath = "./hrtfs/elev0/" + fileName
+                test = open(filePath, "r").read().split("\\n")
+
+                data = []
+
+                for item in test:
+                    if item != '':
+                        data.append(float(item))
+
+                elev0Hrtf_L[i] = data
+
+            for i in range(72):
+                str_i = str(i * 5)
+
+                if len(str_i) < 2:
+                    str_i = "00" + str_i
+                elif len(str_i) < 3:
+                    str_i = "0" + str_i
+
+                fileName = "R0e" + str_i + "a.dat"
+                filePath = "./hrtfs/elev0/" + fileName
+                test = open(filePath, "r").read().split("\\n")
+
+                data = []
+
+                for item in test:
+                    if item != '':
+                        data.append(float(item))
+
+                elev0Hrtf_R[i] = data
+
+            return elev0Hrtf_L, elev0Hrtf_R
+
+        def convolution(data, hrtf, N, L):
+            spectrum = numpy.fft.fft(data, n = N)
+            hrtf_fft = numpy.fft.fft(hrtf, n = N)
+            add = spectrum * hrtf_fft
+            result = numpy.fft.ifft(add, n = N)
+            return_data = result.real
+            return return_data[:L], return_data[L:]
+
+        def play_elev0(sound_data, N, L, hrtfL, hrtfR, position, overLap, streamObj):
+            index = 0
+            overLap_L = numpy.zeros(overLap)
+            overLap_R = numpy.zeros(overLap)
+
+            all = []
+
+            while(sound_data[index:].size > L):
+                result_data = numpy.empty((0, 2), dtype=numpy.int16)
+
+                tmp_conv_L, add_L = convolution(sound_data[index:index + L, 0], hrtfL[position], N, L)
+                tmp_conv_R, add_R = convolution(sound_data[index:index + L, 1], hrtfR[position], N, L)
+
+                tmp_conv_L[:overLap] += overLap_L
+                tmp_conv_R[:overLap] += overLap_R
+
+                overLap_L = add_L
+                overLap_R = add_R
+
+                for i in range(tmp_conv_L.size):
+                    result_data = numpy.append(result_data, numpy.array([[int(tmp_conv_L[i]), int(tmp_conv_R[i])]], dtype=numpy.int16), axis=0)
+
+                streamObj.write(bytes(result_data))#bytes(result_data)=stream.read(CHUNK)
+                all.append(bytes(result_data))
+
+                index += L
+
+            streamObj.close()
+
+            wavFile = wave.open("please_last.wav", 'wb')
+            wavFile.setnchannels(2)
+            wavFile.setsampwidth(p.get_sample_size(8))
+            wavFile.setframerate(48000)
+            wavFile.writeframes(b''.join(all)) 
+            wavFile.close()
+
+        soundDataPath = "./test_10s.wav"
+        rate, soundData = scw.read(soundDataPath)
+
+        p = pyaudio.PyAudio()
+        stream = p.open(format = 8,
+                        channels = 2,
+                        rate = rate,
+                        output = True,
+                        )
+
+        hrtf_L, hrtf_R = load_elev0hrtf()
+        N = 1024
+        L = 513
+        overLap = 511
+        position = 60
+
+        p.terminate()
+
+        #参考https://zack-ff.hatenablog.com/entry/2017/01/05/180628
+        ```
+        """
+
+
     
-    
-    App_contents = st.sidebar.radio("",["contents","Joycon-Tennis","HRTF 3DSounds Demo","yfinance","Azure Computer Vision Demo"])
+    App_contents = st.sidebar.radio("",["contents","Joy-Con Tennis","HRTF 3DSounds","yfinance","Azure Computer Vision Demo"])
     if(App_contents == "contents"):
         Apps_demo_title()
     elif App_contents == "yfinance": 
         Apps_demo_yfinance()
     elif App_contents == "Azure Computer Vision Demo":
         Apps_demo_Azure()
+    elif App_contents == "Joy-Con Tennis":
+        Apps_demo_Unity()
+    elif App_contents == "HRTF 3DSounds":
+        Apps_demo_hrtf()
     else:
         st.write("作成中です")
 
@@ -321,5 +479,5 @@ else:
     Apps_Demo()
 
 st.sidebar.write(" ")
-st.sidebar.write("更新 2021/06/13")
+st.sidebar.write("更新 2021/06/14")
 
